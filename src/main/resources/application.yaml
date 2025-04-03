@@ -41,9 +41,9 @@ spring:
     fail-on-missing-locations: false
   datasource:
     #url: 'jdbc:h2:file:./target/database/h2'
-    url: ${URL}
-    username: ${USERNAME}
-    password: ${PASS}
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASS}
     driverClassName: oracle.jdbc.OracleDriver
     max-active: 15
 
@@ -58,8 +58,8 @@ spring:
       #Hibernate dialect is automatically detected except Postgres and H2.
       #If using H2, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirH2Dialect
       #If using postgres, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
-      hibernate.dialect: org.hibernate.dialect.Oracle10gDialect
-  #      hibernate.hbm2ddl.auto: update
+      hibernate.dialect: org.hibernate.dialect.OracleDialect
+      hibernate.hbm2ddl.auto: update
   #      hibernate.jdbc.batch_size: 20
   #      hibernate.cache.use_query_cache: false
   #      hibernate.cache.use_second_level_cache: false
