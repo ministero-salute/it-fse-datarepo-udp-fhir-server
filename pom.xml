@@ -24,7 +24,7 @@
 
     <artifactId>hapi-fhir-jpaserver-starter</artifactId>
     <version>${project.parent.version}-${hapi.fhir.jpa.server.starter.revision}</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <prerequisites>
         <maven>3.8.3</maven>
@@ -389,6 +389,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+         		<dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <version>${spring_boot_version}</version>
+                </dependency>
 
     </dependencies>
 
