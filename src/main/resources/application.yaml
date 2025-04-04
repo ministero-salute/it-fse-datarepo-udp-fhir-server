@@ -41,10 +41,10 @@ spring:
     fail-on-missing-locations: false
   datasource:
     #url: 'jdbc:h2:file:./target/database/h2'
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASS}
-    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:h2:mem:test_mem
+    username: sa
+    password: null
+    driverClassName: org.h2.Driver
     max-active: 15
 
     # database connection pool size
@@ -58,8 +58,8 @@ spring:
       #Hibernate dialect is automatically detected except Postgres and H2.
       #If using H2, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirH2Dialect
       #If using postgres, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
-      hibernate.dialect: org.hibernate.dialect.OracleDialect
-      hibernate.hbm2ddl.auto: update
+      hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirH2Dialect
+  #      hibernate.hbm2ddl.auto: update
   #      hibernate.jdbc.batch_size: 20
   #      hibernate.cache.use_query_cache: false
   #      hibernate.cache.use_second_level_cache: false
@@ -176,7 +176,7 @@ hapi:
     #    allowed_bundle_types: COLLECTION,DOCUMENT,MESSAGE,TRANSACTION,TRANSACTIONRESPONSE,BATCH,BATCHRESPONSE,HISTORY,SEARCHSET
     #    allow_cascading_deletes: true
     #    allow_contains_searches: true
-    #    allow_external_references: true
+    allow_external_references: true
     #    allow_multiple_delete: true
     #    allow_override_default_search_params: true
     #    auto_create_placeholder_reference_targets: false
