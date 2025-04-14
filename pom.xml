@@ -588,8 +588,7 @@
                     </ignoredResourcePatterns>
                 </configuration>
             </plugin>
-        </plugins>
-        <plugin>
+             <plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<dependencies>
 					<dependency>
@@ -641,6 +640,8 @@
 					</execution>
 				</executions>
 			</plugin>
+        </plugins>
+       
     </build>
 
     <profiles>
