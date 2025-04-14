@@ -2,7 +2,6 @@
 server:
   #  servlet:
   #    context-path: /example/path
-  port: 8080
   port: 8081
 #Adds the option to go to eg. http://localhost:8080/actuator/health for seeing the running configuration
 #see https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints
@@ -42,13 +41,10 @@ spring:
     fail-on-missing-locations: false
   datasource:
     #url: 'jdbc:h2:file:./target/database/h2'
-    url: jdbc:h2:mem:test_mem
-    username: sa
-    password: null
-    driverClassName: org.h2.Driver
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASS}
+    url: jdbc:oracle:thin:@${ORACLE_ADDRESS}
+    username: ${ORACLE_USERNAME}
+    password: ${ORACLE_PASSWORD}
+    driverClassName: oracle.jdbc.OracleDriver
     max-active: 15
 
     # database connection pool size
@@ -62,7 +58,6 @@ spring:
       #Hibernate dialect is automatically detected except Postgres and H2.
       #If using H2, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirH2Dialect
       #If using postgres, then supply the value of ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
-      hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirH2Dialect
       hibernate.dialect: org.hibernate.dialect.OracleDialect
   #      hibernate.hbm2ddl.auto: update
   #      hibernate.jdbc.batch_size: 20
