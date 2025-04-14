@@ -45,6 +45,9 @@ spring:
     username: sa
     password: null
     driverClassName: org.h2.Driver
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASS}
     max-active: 15
 
     # database connection pool size
