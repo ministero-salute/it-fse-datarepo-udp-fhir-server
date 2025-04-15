@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <hapi.fhir.jpa.server.starter.revision>1</hapi.fhir.jpa.server.starter.revision>
         <!-- Build -->
-		<config.infra>${project.basedir}/infrastructure</config.infra>
-		<container.output>target/container</container.output>
-		<container.output.runtime>${container.output}/runtime</container.output.runtime>
+	<config.infra>${project.basedir}/infrastructure</config.infra>
+	<container.output>target/container</container.output>
+	<container.output.runtime>${container.output}/runtime</container.output.runtime>
     </properties>
 
     <!-- one-liner to take you to the cloud with settings form the application.yaml file: -->
@@ -424,7 +424,7 @@
         </pluginManagement>
 
         <!-- Tells Maven to name the generated WAR file as ROOT.war -->
-        <finalName>ROOT</finalName>
+        <finalName>${project.artifactId}</finalName>
 
         <plugins>
             <plugin>
@@ -635,7 +635,7 @@
 										<copy todir="${container.output}" overwrite="true"
 											failonerror="false">
 											<fileset dir="${project.basedir}/target"
-												includes="${project.artifactId}-${project.version}.jar" />
+												includes="${project.artifactId}.jar" />
 										</copy>
 									</then>
 								</if>
