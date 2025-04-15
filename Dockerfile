@@ -13,10 +13,11 @@ ENV GC_MAX_METASPACE_SIZE=300
 
 USER root
 
-RUN groupadd -g 185 jboss && \
-    useradd -u 185 -g 185 -r -m -d /home/jboss -s /sbin/nologin -c "JBoss user" jboss && \
+RUN useradd -u 185 -g 185 -r -m -d /home/jboss -s /sbin/nologin -c "JBoss user" jboss || true && \
     mkdir -p /deployments /workspace/app && \
     chown -R jboss:jboss /deployments /workspace/app /home/jboss
+
+USER jboss
 
 COPY ${JAR_FILE} /deployments/
 COPY ${RUNTIME} /deployments/
