@@ -11,6 +11,13 @@ ENV JAVA_DIAGNOSTICS=true
 ENV JAVA_OPTIONS="-XX:TieredStopAtLevel=1 -noverify -Xms512m -Xmx1024m"
 ENV GC_MAX_METASPACE_SIZE=300
 
+USER root
+
+RUN groupadd -g 185 jboss && \
+    useradd -u 185 -g 185 -r -m -d /home/jboss -s /sbin/nologin -c "JBoss user" jboss && \
+    mkdir -p /deployments /workspace/app && \
+    chown -R jboss:jboss /deployments /workspace/app /home/jboss
+
 COPY ${JAR_FILE} /deployments/
 COPY ${RUNTIME} /deployments/
 
