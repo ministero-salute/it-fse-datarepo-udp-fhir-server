@@ -233,6 +233,8 @@ hapi:
       - https://unitsofmeasure.org/*
       - http://loinc.org/*
       - https://loinc.org/*
+    partitioning:
+       allow_references_across_partitions: true
 #       partitioning_include_in_search_hashes: false
 #       conditional_create_duplicate_identifiers_enabled: true
     cors:
